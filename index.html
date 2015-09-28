@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Анимация</title>
+</head>
+<style>
+	#bod{
+		position: absolute;
+		width: 1000px;
+		height: 700px;
+		box-shadow: 0 0 0 1px lightblue;
+		left: 50%;
+		top: 50%;
+		margin-left: -500px;
+		margin-top: -350px;
+		overflow: hidden;
+		perspective: 1000px;
+	}
+	#but1,#but2{
+		position: absolute;
+		top: 500px;
+		border-radius: 4px;
+		height: 55px;
+		font: 50px "Times New Roman";		
+	}
+	#but1{
+		left: 20%;
+		margin-left: -75px;
+		width: 270px;
+	}
+	#but2{
+		left: 60%;
+		width: 230px;
+	}
+	.separator1,.separator2{
+		position: absolute;
+		width: 100%;
+		height: 100px;		
+		left: 0;
+		top: 600px;
+		transition: transform 0.6s;
+		transform-style: preserve-3d;
+		background-color: lightblue;
+		backface-visibility: hihidden;		
+	}	
+	.subbut{
+		position: absolute;
+		width: 80px;
+		height: 30px;
+		top: 35px;
+		font: 30px "Times New Roman";
+		text-align: center;		
+		text-decoration: none;
+	}
+	.subbut:hover{
+		text-decoration: underline;
+	}
+	.separator1{
+		left: -101%;
+	}
+	.separator2{
+		left: 101%;
+		height: 150px;
+		background-color: lightblue;
+		transform: rotate3d(180deg);
+	}
+	#q0{
+		left: 5%;
+	}
+	#q1{
+		left: 20%;
+	}
+	#q2{
+		left: 35%;
+	}
+	#q3{
+		left: 50%;
+	}
+	#q4{
+		left: 65%;
+	}
+	#q5{		
+		left: 80%;
+	}
+	#q6{
+		left: 20%;
+	}
+	#q7{
+		left: 45%;
+	}
+	#q8{
+		left: 65%;
+	}
+	p{
+		position: absolute;
+		top: 15%;
+		left: 50%;	
+		width: 100%;
+		height: 100px;
+		font: 90px "Monotype Corsiva";
+		text-align: center;
+		margin-left: -500px;
+	}
+	.radio{
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		
+		filter: blur(3px); 
+   		 -webkit-filter: blur(3px); 
+   		 -moz-filter: blur(3px);
+   		 -o-filter: blur(3px); 
+  		 -ms-filter: blur(3px);
+		
+		border-radius: 25px;
+		top: 10px;
+		left: 250px;
+	}
+</style>	
+<body>
+<div id="bod">
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+		<div class="radio"></div>
+	<p id="mainWord"></p>
+	
+	
+	<div id="but1">cамастойная</div>
+	<div id="but2">cлужбовая</div>
+<div class="separator1">
+	<div class="subbut" id="q0">прыметнік</div>
+	<div class="subbut" id="q1">назоўнік</div>
+	<div class="subbut" id="q2">дзеяслоў</div>
+	<div class="subbut" id="q3">займеннік</div>
+	<div class="subbut" id="q4">лічэбнік</div>
+	<div class="subbut" id="q5">прыслоўе</div>
+</div>
+
+<div class="separator2">	
+	<div class="subbut" id="q6">прыназоўнік</div>
+	<div class="subbut" id="q7">злучнік</div>
+	<div class="subbut" id="q8">часціца</div>	
+</div>
+</div>
+</body>
+<script>
+	var radios=document.getElementsByClassName('radio');
+	for (tt=0;tt<10;tt++){
+		radios[tt].style.left=250+tt*50+"px";
+	}
+	
+	var but1=document.getElementById("but1");
+	var but2=document.getElementById("but2");
+	
+	var separator1=document.getElementsByClassName("separator1")[0];
+	var separator2=document.getElementsByClassName("separator2")[0];
+	
+		but1.onclick=function(){
+			but1.style.opacity=1;			
+			separator1.style.left=0+"%";
+			separator2.style.left=101+"%";
+			but1.style.boxShadow="0 0 15px green";
+			but2.style.opacity=0.4;
+			but2.style.boxShadow="none";
+		}
+		but2.onclick=function(){
+			but2.style.opacity=1;
+			separator2.style.left=0+"%";
+			separator1.style.left=-101+"%";
+			but2.style.boxShadow="0 0 15px darkgreen";
+			but1.style.boxShadow="none";
+			but1.style.opacity=0.4;
+		}		
+var words=[];
+for (var i=0;i<500;i++){words[i]=[];}		
+//прыметник
+words[0][0]='высокі';
+words[0][1]='разумны';
+words[0][2]='прыгожы';
+words[0][3]='зялёны';
+words[0][4]='сіні';
+words[0][5]='ружовы';
+words[0][6]='чырвоны';
+words[0][7]='белы';
+words[0][8]='глыбокі';
+words[0][9]='шаноўны';
+words[0][10]='паважаны';
+words[0][11]='далёкі';
+words[0][12]='блізкі';
+words[0][13]='малы';
+words[0][14]='нізкі';
+words[0][15]='чорны';
+words[0][16]='страшэнны'; 
+words[0][17]='пачварны';
+words[0][18]='прывабны';
+words[0][19]='лёгкі';
+words[0][20]='мяккі';
+words[0][21]='цяжкі';
+words[0][22]='школьны';
+words[0][23]='бацькоўскі';
+words[0][24]='дзіцячы';
+words[0][25]='матулін';
+words[0][26]='жорсткі';
+words[0][27]='смелы';
+words[0][28]='адважны';
+words[0][29]='труслівы'; 
+words[0][30]='ганебны'; 
+words[0][31]='прыкры';
+words[0][32]='непрыемны';
+words[0][33]='мужны';
+//назоуник
+words[1][0]='дом';
+words[1][1]='сцяна';
+words[1][2]='дзеці';
+words[1][3]='настаўнік';
+words[1][4]='школа';
+words[1][5]='машына'; 
+words[1][6]='вучні';
+words[1][7]='дошка';
+words[1][8]='настаўніцкая'; 
+words[1][9]='камп’ютар'; 
+words[1][10]='барацьба'; 
+words[1][11]='дзядзька'; 
+words[1][12]='снег';
+words[1][13]='сняжынка';
+words[1][14]='плот';
+words[1][15]='сурвэтка';
+words[1][16]='кажан';
+words[1][17]='кавун';
+words[1][18]='гарбуз';
+words[1][19]='вусень';
+words[1][20]='слімак';
+words[1][21]='абрус'; 
+words[1][22]='гасціннасць';
+words[1][23]='шчасце';
+words[1][24]='бяда';
+words[1][25]='любоў';
+words[1][26]='каханне';
+words[1][27]='недавер';
+words[1][28]='бусел';
+words[1][29]='шпак';
+words[1][30]='лыжы'; 
+words[1][31]='бігудзі';
+words[1][32]='кансервы';
+words[1][33]='нож';
+words[1][34]='відэлец';
+words[1][35]='сукенка';
+words[1][36]='штаны'; 
+words[1][37]='восень'; 
+words[1][38]='канікулы';		
+//дзеяслоу	
+words[2][0]='хадзіць';
+words[2][1]='пісаць';
+words[2][2]='чытаць';
+words[2][3]='ляжаць';
+words[2][4]='глядзець';
+words[2][5]='хварэць';
+words[2][6]='гаварыць';
+words[2][7]='любіць';
+words[2][8]='кахаць';
+words[2][9]='адказваць';
+words[2][10]='маляваць';
+words[2][11]='ненавідзець';
+words[2][12]='маўчаць';
+words[2][13]='скакаць';
+words[2][14]='спаць';
+words[2][15]='працаваць';
+words[2][16]='ехаць';
+words[2][17]='стаяць';
+words[2][18]='падкрэсліваць';
+words[2][19]='часаць';
+words[2][20]='бубніць';
+words[2][21]='спяваць';
+words[2][22]='набіраць';
+words[2][23]='карміць';
+words[2][24]='кашляць';
+words[2][25]='выздараўліваць';
+words[2][26]='радавацца';
+words[2][27]='будаваць';
+words[2][28]='думаць';
+words[2][29]='старацца';
+words[2][30]='працягваць';
+words[2][31]='імкнуцца';
+words[2][32]='лятаць';
+words[2][33]='шаптаць';
+words[2][34]='крычаць';
+words[2][35]='гуляць';	
+//займенник
+words[3][0]='я';
+words[3][1]='нас';
+words[3][2]='мы';
+words[3][3]='нехта';
+words[3][4]='хтосьці';
+words[3][5]='сябе';
+words[3][6]='вы';
+words[3][7]='ніхто';
+words[3][8]='нішто';
+words[3][9]='хто';
+words[3][10]='што';
+words[3][11]='ты';
+words[3][12]='яны';
+words[3][13]='сам';
+words[3][14]='усякі';
+words[3][15]='мой';
+words[3][16]='твой';
+words[3][17]='іншы';
+words[3][18]='кожны';
+words[3][19]='ваш';
+words[3][20]='увесь'; 
+words[3][21]='нешта';
+//личэбник
+words[4][0]='пяць';
+words[4][1]='дваццаць';
+words[4][2]='сем';
+words[4][3]='адзінаццаць';
+words[4][4]='адна другая';
+words[4][5]='шэсцьдзясят';
+words[4][6]='восемдзясят';
+words[4][7]='восемсот';
+words[4][8]='адзін';
+words[4][9]='чацвёрты';
+words[4][10]='пяць сёмых';
+words[4][11]='пяцёра';
+words[4][12]='шасцёра';
+words[4][13]='сямёра';
+words[4][14]='сто';
+words[4][15]='сорак';
+words[4][16]='дзвесце';
+words[4][17]='два';
+words[4][18]='адзінаццаць';
+words[4][19]='трыццаць сем'; 
+words[4][20]='тысяча';
+//прыслоуе
+words[5][0]='высока';
+words[5][1]='нізка';
+words[5][2]='далёка';
+words[5][3]='на памяць';
+words[5][4]='прыгожа';
+words[5][5]='старанна';
+words[5][6]='акуратна';
+words[5][7]='хутка';
+words[5][8]='па-беларуску';
+words[5][9]='гучна';
+words[5][10]='ціха';
+words[5][11]='павольна';
+words[5][12]='рэдка';
+words[5][13]='сцісла';
+words[5][14]='лаканічна';
+words[5][15]='найвесялей';
+words[5][16]='найбольш';
+words[5][17]='мякка';
+words[5][18]='блізка';
+words[5][19]='весела';
+words[5][20]='па-французску';
+//прыназоуник
+words[6][0]='з';
+words[6][1]='пад';
+words[6][2]='каля';
+words[6][3]='ля';
+words[6][4]='над';
+words[6][5]='па-над';
+words[6][6]='да';
+words[6][7]='на';
+words[6][8]='ад';
+words[6][9]='за';
+words[6][10]='без';
+words[6][11]='для';
+words[6][12]='пры';
+words[6][13]='перад'; 
+words[6][14]='аб';
+words[6][15]='з-за'; 
+words[6][16]='па-за';
+//злучник
+words[7][0]='каб';
+words[7][1]='ці-ці';
+words[7][2]='і';
+words[7][3]='бо';
+words[7][4]='ці то-ці то';
+words[7][5]='або';
+//часцица
+words[8][0]='ж';
+words[8][1]='жа';
+words[8][2]='не';
+words[8][3]='ні';
+words[8][4]='б';
+words[8][5]='бы';
+words[8][6]='ну';
+words[8][7]='аж';
+words[8][8]='ажно';
+words[8][9]='хіба';
+words[8][10]='ні-ні';
+words[8][11]='ані-ані';
+
+var WordArr=[];
+var AnswArr=[];
+var UserAnswerArr=[];
+
+
+var FillArray=function(){
+	var questCounter=0;
+	while (questCounter<10){
+		xx=[];
+		x=Math.floor(Math.random()*9);
+		y=Math.floor(Math.random()*words[x].length);
+		var canAdd=0;
+		for (var j=0;j<xx.length+1;j++){
+			if ((x+"_"+y)==xx[j]){
+				canAdd=1;
+			}
+		}
+		if (canAdd==0){questCounter++; WordArr.push(words[x][y]);AnswArr.push(x);xx.push(x+"_"+y)};		
+	}		
+}();
+
+var textBox=document.getElementById("mainWord");
+var buts=document.getElementsByClassName('subbut');
+var ShowQuests=function(){
+	var nowQuest=0;
+	textBox.innerText=WordArr[nowQuest];	
+	for (ix=0;ix<buts.length;ix++){
+		buts[ix].onclick=function(){			
+			UserAnswerArr.push(this.id[1]);	
+			if (UserAnswerArr[nowQuest]==AnswArr[nowQuest]){radios[nowQuest].style.background="green";} 
+			else {radios[nowQuest].style.background="red";}
+			nowQuest++;
+			if (nowQuest!=10){
+				textBox.innerText=WordArr[nowQuest];	
+				but1.style.boxShadow="none";	
+				but2.style.boxShadow="none";	
+				separator1.style.left=-101+"%";
+				separator2.style.left=101+"%";
+				but1.style.opacity=1;
+				but2.style.opacity=1;
+			}
+			else{
+				document.getElementById('bod').style.left=-101+"%";
+				var counterRight=0;
+				for (y=0;y<10;y++){
+					if (UserAnswerArr[y]==AnswArr[y]){counterRight++;};
+				}
+				alert("Вы набрали "+counterRight+" з 10 балау");
+			}
+			
+		}
+}
+}();
+</script>
+</html>
